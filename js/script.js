@@ -81,8 +81,8 @@ function formSubmitCOVID(){
             item7,
             );
         cardImgDiv.append(cardImg,cardTitle);
-        card.append(cardImgDiv,cardConten);
-
+        card.append(cardImgDiv,cardContent);
+        covidDataContainer.append(card);
 
     });
 }
