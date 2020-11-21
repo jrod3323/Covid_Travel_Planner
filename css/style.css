@@ -12,3 +12,14 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+#top-jumbo{
+  background-image: url("../assets/COVIDTravelBanner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#jumbo-text{
+  text-shadow: 1px 1px black;
+}
+#jumbo-title{
+  text-shadow: 1px 1px black;
+}
