@@ -6,7 +6,7 @@
 // var stateInput = $(".selectState");
 // var cityInput = $(".selectCity");
 // var yelpDataContainer = $("$.yelpDataContainer");
-// var covidDataContainer = $(".covidDataContainer");
+var covidDataContainer = $(".covidDataContainer");
 // var searchForm = $(".selectStateForm");
 // var activitySelector = $(".selectActivityForm")
 
@@ -54,43 +54,38 @@ function formSubmitCOVID(){
         var positivePercent = ((positiveTests/totalTests)*100).toFixed(2);
         console.log(positivePercent);
 
-    });
-}
-
-
-function formSubmitYelp(){
-        // pulling user data for Postal Code
-    
-    /////////uncomment variable after testing complete and delete static OH variable
-    ////var state = stateInput.val();
-    ////var city = cityInput.val().trim();
-    ////var cityState = (city+", "+state)
-    ////var activity = selectActivityForm.val();
-    var cityState = "austin, tx"
-    var activity = "hiking"
-    //URL to query for state COVID data
-    var queryURL = `https://api.yelp.com/v3/businesses/search?term=${activity}&location=${cityState}`;
-   
-    //empty that container for COVID data before appending new
-    // covidDataContainer.empty();
-    //AJAX
-    $.ajax({
-        url: queryURL,
-        headers: { 
-            'Authorization': 'Bearer W0lfFIcb5fb4fUDSVy2zgoPH7PTpRQpqjxVXXVJJfQ2ls3yKYnxFV1dwQaoM959N2UWBLaKY3rIh7BhuiMlLMainwbKGIGK4VJDsyK8L3YnSb6_OAuJGj1u_gD25X3Yx',
-            'Access-Control-Allow-Origin': '*',
-        },
-        method: "GET",
-        }).then(function(response) {
-        //get the UV index
-        console.log(response)
-        
-        //grabbing necessary data
-
+        var card = $("<div>");
+        var cardImgDiv = $("<div>")
+        card.addClass("card");
+        var cardImg = $("<img>");
+        //need to add in state flag
+        cardImg.attr("src", "");
+        cardTitle = $("<span>").text("STATE");
+        cardTitle.addClass("card-title");
+        var cardContent = $("<div>");
+        cardContent.addClass("card-content");
+        var item1 = $("<p>").text(`Date of last update: ${lastUpdate}`);
+        var item2 = $("<p>").text(`Total Deaths: ${totalDeaths}`);
+        var item3 = $("<p>").text(`Increase in Deaths since previous update: ${deathIncreaseSinceLast}`);
+        var item4 = $("<p>").text(`Current Hospitalizations: ${currentlyHospitalized}`);
+        var item5 = $("<p>").text(`Increase in hospitalizations since previous update: ${increasedHospitalizations}`);
+        var item6 = $("<p>").text(`Probable Deaths: ${probableDeaths}`);
+        var item7 = $("<p>").text(`Percentage of positive tests: ${positivePercent}%`);
+        cardContent.append(
+            item1,
+            item2,
+            item3,
+            item4,
+            item5,
+            item6,
+            item7,
+            );
+        cardImgDiv.append(cardImg,cardTitle);
+        card.append(cardImgDiv,cardContent);
+        covidDataContainer.append(card);
 
     });
 }
 
 ////Call functions////
 formSubmitCOVID();
-formSubmitYelp();
