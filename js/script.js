@@ -27,6 +27,9 @@ function formSubmitCOVID(){
    
     //empty that container for COVID data before appending new
     // covidDataContainer.empty();
+
+    //looping through state info to grab state flag url
+    
     //AJAX
     $.ajax({
         url: queryURL,
