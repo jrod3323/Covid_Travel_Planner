@@ -87,5 +87,21 @@ function formSubmitCOVID(){
     });
 }
 
+
+// populating dropdown menu with state abbreviation 
+var states = ["AL", "AK", "AZ", "AR","CA","CO","CT","DE","FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH","OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VY", "VA", "WV", "WI", "WY" ]; 
+up.innerHTML = "Click on the button to " 
+        + "perform the operation"+ 
+        ".<br>Array - [" + states + "]"; 
+
+// Main function 
+function GFG_Fun() { 
+    $.each(elmts, function(i, p) { 
+        $('#arr').append($('<option></option>') 
+                    .val(p).html(p)); 
+    }); 
+    down.innerHTML = "Elements Added"; 
+} 
+
 ////Call functions////
 formSubmitCOVID();
