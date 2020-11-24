@@ -1,4 +1,4 @@
-varusStateInfo = [
+var usStateInfo = [
     {
     "state": "Alabama",
     "slug": "alabama",

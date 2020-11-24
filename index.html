@@ -9,10 +9,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
   <nav class="light-blue lighten-1" role="navigation">
@@ -36,6 +32,9 @@
     </div>
   </div>
 
+  <div class="card medium usCovidInfo">
+    <!-- Card Content -->
+  </div>
 
   <div class="container">
     <div class="section">
@@ -48,14 +47,62 @@
             <h5 class="center">Select Your Destination</h5>
 
             <p class="light center">Choose a State and City in the form below</p>
-            
+            <!-- change these to , CREATE AN ARRAY, CALL UPON THEM IN THE DROP DOWN-->
             <div class = "input-field">
             <div class="input-field col s12 m12">
               <select class="icons">
                 <option value="" disabled selected>Choose your option</option>
-                <option value="" data-icon="images/sample-1.jpg">example 1</option>
-                <option value="" data-icon="images/office.jpg">example 2</option>
-                <option value="" data-icon="images/yuna.jpg">example 3</option>
+                <option value="" data-icon="images/sample-1.jpg">AL</option>
+                <option value="" data-icon="images/office.jpg">AK</option>
+                <option value="" data-icon="images/sample-1.jpg">AZ</option>
+                <option value="" data-icon="images/office.jpg">AR</option>
+                <option value="" data-icon="images/yuna.jpg">CA</option>
+                <option value="" data-icon="images/sample-1.jpg">CO</option>
+                <option value="" data-icon="images/office.jpg">CT</option>
+                <option value="" data-icon="images/yuna.jpg">DE</option>
+                <option value="" data-icon="images/office.jpg">FL</option>
+                <option value="" data-icon="images/yuna.jpg">GA</option>
+                <option value="" data-icon="images/office.jpg">HI</option>
+                <option value="" data-icon="images/yuna.jpg">ID</option>
+                <option value="" data-icon="images/sample-1.jpg">IL</option>
+                <option value="" data-icon="images/office.jpg">IN</option>
+                <option value="" data-icon="images/yuna.jpg">IA</option>
+                <option value="" data-icon="images/sample-1.jpg">KS</option>
+                <option value="" data-icon="images/office.jpg">KY</option>
+                <option value="" data-icon="images/yuna.jpg">LA</option>
+                <option value="" data-icon="images/yuna.jpg">ME</option>
+                <option value="" data-icon="images/sample-1.jpg">MD</option>
+                <option value="" data-icon="images/office.jpg">MA</option>
+                <option value="" data-icon="images/yuna.jpg">MI</option>
+                <option value="" data-icon="images/yuna.jpg">MN</option>
+                <option value="" data-icon="images/yuna.jpg">MS</option>
+                <option value="" data-icon="images/sample-1.jpg">MO</option>
+                <option value="" data-icon="images/office.jpg">MT</option>
+                <option value="" data-icon="images/yuna.jpg">NE</option>
+                <option value="" data-icon="images/sample-1.jpg">NV</option>
+                <option value="" data-icon="images/sample-1.jpg">NH</option>
+                <option value="" data-icon="images/sample-1.jpg">NJ</option>
+                <option value="" data-icon="images/yuna.jpg">NM</option>
+                <option value="" data-icon="images/yuna.jpg">NY</option>
+                <option value="" data-icon="images/sample-1.jpg">NC</option>
+                <option value="" data-icon="images/office.jpg">ND</option>
+                <option value="" data-icon="images/yuna.jpg">OH</option>
+                <option value="" data-icon="images/sample-1.jpg">OK</option>
+                <option value="" data-icon="images/sample-1.jpg">OR</option>
+                <option value="" data-icon="images/sample-1.jpg">PA</option>
+                <option value="" data-icon="images/sample-1.jpg">RI</option>
+                <option value="" data-icon="images/sample-1.jpg">SC</option>
+                <option value="" data-icon="images/yuna.jpg">SD</option>
+                <option value="" data-icon="images/yuna.jpg">TN</option>
+                <option value="" data-icon="images/sample-1.jpg">TX</option>
+                <option value="" data-icon="images/office.jpg">UT</option>
+                <option value="" data-icon="images/yuna.jpg">VY</option>
+                <option value="" data-icon="images/sample-1.jpg">VA</option>
+                <option value="" data-icon="images/sample-1.jpg">WV</option>
+                <option value="" data-icon="images/sample-1.jpg">WI</option>
+                <option value="" data-icon="images/sample-1.jpg">WY</option>
+
+                
               </select>
               <label>please choose a State</label>
             </div>
@@ -69,7 +116,7 @@
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
             <h5 class="center">Select Your Desired Activities </h5>
-            <p class="light center">here is up to date COVID-19 info on where you want to travel:</p>
+            <p class="light center">Use the buttons below to get recommendations</p>
           </div>
           <form  action="#">
             <div class = "col s6 m6 l6">
@@ -133,7 +180,7 @@
             <h2 class="center light-blue-text"><i class="material-icons">date_range</i></h2>
             <h5 class="center">Select Your Intended Stay Duration</h5>
 
-            <p class="light">Use the form below to select when you intend to travel for up to date weather information</p>
+            <p class="light">select when you intend to travel for up to date weather information</p>
             <p>Trip Start Date: <input type="text" id="datepicker"></p>
             
             <form action="#">
@@ -153,16 +200,16 @@
             <h2 class="center light-blue-text"><i class="material-icons">add_location</i></h2>
             <h5 class="center">Your Selected Destination's COVID-19 Info</h5>
 
-            <p class="light">form will go here and include state and city selectors</p>
+            <p class="light center">here is up to date COVID-19 info on where you want to travel:</p>
           </div>
         </div>
 
         <div class="col s12 m4 activityDataContainer">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Recomendations for Your Desired Activities </h5>
+            <h5 class="center">Recomendations for Your Desired Activities</h5>
 
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users.</p>
+            <p class="light center">here are some recomendations:</p>
           </div>
         </div>
 
@@ -171,7 +218,7 @@
             <h2 class="center light-blue-text"><i class="material-icons">cloud</i></h2>
             <h5 class="center">Weather Forecast for Your Intended Stay Duration</h5>
 
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            <p class="light center">here is the forecast for your intended period of stay:</p>
           </div>
         </div>
       </div>
@@ -197,9 +244,11 @@
 
 
   <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="./js/materialize.js"></script>
+  <script src="./js/init.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('select');
