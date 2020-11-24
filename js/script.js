@@ -7,6 +7,7 @@
 // var cityInput = $(".selectCity");
 // var yelpDataContainer = $("$.yelpDataContainer");
 var covidDataContainer = $(".covidDataContainer");
+var usCovidData = $(".usCovidInfo")
 // var searchForm = $(".selectStateForm");
 // var activitySelector = $(".selectActivityForm")
 
@@ -87,5 +88,58 @@ function formSubmitCOVID(){
     });
 }
 
+function currentUSData(){
+        //URL to query for state COVID data
+        var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
+   
+        //empty that container for COVID data before appending new
+        // covidDataContainer.empty();
+        //AJAX
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+            }).then(function(response) {
+            //get the UV index
+            console.log(response)
+            //pulling data from API
+            var totalDeath = response[0].death ;
+            var deathIncrease = response[0].deathIncrease;
+            var currentlyHospitalized = response[0].hospitalizedCurrently;
+            var increasedHospitalizations = response[0].hospitalizedIncrease;
+            var positiveTests = response[0].positive;
+            var totalTests = response[0].totalTestResults ;
+            var positivePercent = ((positiveTests/totalTests)*100).toFixed(2);
+
+            //dynamic elements
+            var card = $("<div>");
+            var cardImgDiv = $("<div>");
+            card.addClass("card");
+            var cardImg = $("<img>");
+            //need to add in state flag
+            cardImg.attr("src", "https://m.media-amazon.com/images/I/51945vytmPL._AC_.jpg");
+            cardTitle = $("<span>").text("United Stats Data");
+            cardTitle.addClass("card-title");
+            var cardContent = $("<div>");
+            cardContent.addClass("card-content");
+            var item2 = $("<p>").text(`Total Deaths in US: ${totalDeath}`);
+            var item3 = $("<p>").text(`US Increase in Deaths since previous update: ${deathIncrease}`);
+            var item4 = $("<p>").text(`Current Hospitalizations in US: ${currentlyHospitalized}`);
+            var item5 = $("<p>").text(`US Increase in hospitalizations since previous update: ${increasedHospitalizations}`);
+            var item7 = $("<p>").text(`US Percentage of positive tests: ${positivePercent}%`);
+            cardContent.append(
+                item2,
+                item3,
+                item4,
+                item5,
+                item7,
+                );
+            cardImgDiv.append(cardImg,cardTitle);
+            card.append(cardImgDiv,cardContent);
+            usCovidData.append(card);
+        });
+
+}
+
 ////Call functions////
 formSubmitCOVID();
+currentUSData();
