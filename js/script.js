@@ -92,22 +92,38 @@ function formSubmitCOVID(){
     });
 }
 
-<<<<<<< HEAD
 
 function formSubmitActivity(){
     //------------------------Google Places---------------------------
     var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
     var googURL = `https://maps.googleapis.com/maps/api/place/details/output?parameters`;
 
-    //ajax promise
-    $.ajax({
-        url: googURL,
-        method :"GET"
-        }).then(function(response) {
-        console.log(response);
-        console.log(googURL);
-
-        })}
+    function formSubmitActivity(){
+        //------------------------Google Places---------------------------
+        var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
+        var googURL = `https://maps.googleapis.com/maps/api/place/details/output?parameters`;
+    
+        //ajax promise
+        $.ajax({
+            url: googURL,
+            method :"GET"
+            }).then(function(response) {
+            console.log(response);
+            console.log(googURL);
+    
+    
+        $("#rvPark").html(response.) ;
+        $("#zoo").html(response. );
+        $("#parks").html(response. );
+        $("#rest").html(response. );
+        $("#lodge").html(response. );
+        $("#meal").html(response. );
+        $("#camp").html(response. );
+        $("#muse").html( response. );
+    
+    console.log(googURL);
+    
+            })}
         
         
         
@@ -127,7 +143,6 @@ function formSubmitActivity(){
 
 
         
-=======
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
@@ -196,4 +211,3 @@ for loop {
 }
 
 usStateInfo [ that returned index].state flag 
->>>>>>> eb0ea79977d1a358b085779d7b264ee9fe1fc211
