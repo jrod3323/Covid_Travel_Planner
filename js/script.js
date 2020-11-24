@@ -24,7 +24,9 @@ function formSubmitCOVID(){
     var state = "OH"
     //URL to query for state COVID data
     var queryURL = `https://api.covidtracking.com/v1/states/${state}/current.json`;
-   
+
+    
+
     //empty that container for COVID data before appending new
     // covidDataContainer.empty();
 
@@ -93,6 +95,57 @@ function formSubmitCOVID(){
     });
 }
 
+
+function formSubmitActivity(){
+    //------------------------Google Places---------------------------
+    var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
+    var googURL = `https://maps.googleapis.com/maps/api/place/details/output?parameters`;
+
+    function formSubmitActivity(){
+        //------------------------Google Places---------------------------
+        var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
+        var googURL = `https://maps.googleapis.com/maps/api/place/details/output?parameters`;
+    
+        //ajax promise
+        $.ajax({
+            url: googURL,
+            method :"GET"
+            }).then(function(response) {
+            console.log(response);
+            console.log(googURL);
+    
+    
+        $("#rvPark").html(response.) ;
+        $("#zoo").html(response. );
+        $("#parks").html(response. );
+        $("#rest").html(response. );
+        $("#lodge").html(response. );
+        $("#meal").html(response. );
+        $("#camp").html(response. );
+        $("#muse").html( response. );
+    
+    console.log(googURL);
+    
+            })}
+        
+        
+        
+        
+        
+        // var rv = respnse. ;
+        // var zoo = response. ;
+        // var parks = response. ;
+        // var rest = response. ; 
+        // var lodge = response. ;
+        // var mealDiv = response. ;
+        // var camp = response. ;
+        // var muse = response. ;
+        // })
+   
+//------------------------------------------------------------------------------
+
+
+        
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
