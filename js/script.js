@@ -17,21 +17,19 @@ var usCovidData = $(".usCovidInfo")
 function formSubmitCOVID(){
     
     // pulling user data for Postal Code
-    
+   
+    // attach flag to state
+
+
     /////////uncomment variable after testing complete and delete static OH variable
     ////var state = stateInput.val();
     
     var state = "OH"
     //URL to query for state COVID data
     var queryURL = `https://api.covidtracking.com/v1/states/${state}/current.json`;
-
-    
-
+   
     //empty that container for COVID data before appending new
     // covidDataContainer.empty();
-
-    //looping through state info to grab state flag url
-    
     //AJAX
     $.ajax({
         url: queryURL,
@@ -59,8 +57,6 @@ function formSubmitCOVID(){
         console.log(totalTests)
         var positivePercent = ((positiveTests/totalTests)*100).toFixed(2);
         console.log(positivePercent);
-
-        //for 
 
         var card = $("<div>");
         var cardImgDiv = $("<div>")
@@ -95,57 +91,6 @@ function formSubmitCOVID(){
     });
 }
 
-
-function formSubmitActivity(){
-    //------------------------Google Places---------------------------
-    var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
-    var googURL = `https://maps.googleapis.com/maps/api/place/details/output?parameters`;
-
-    function formSubmitActivity(){
-        //------------------------Google Places---------------------------
-        var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
-        var googURL = `https://maps.googleapis.com/maps/api/place/details/output?parameters`;
-    
-        //ajax promise
-        $.ajax({
-            url: googURL,
-            method :"GET"
-            }).then(function(response) {
-            console.log(response);
-            console.log(googURL);
-    
-    
-        $("#rvPark").html(response.) ;
-        $("#zoo").html(response. );
-        $("#parks").html(response. );
-        $("#rest").html(response. );
-        $("#lodge").html(response. );
-        $("#meal").html(response. );
-        $("#camp").html(response. );
-        $("#muse").html( response. );
-    
-    console.log(googURL);
-    
-            })}
-        
-        
-        
-        
-        
-        // var rv = respnse. ;
-        // var zoo = response. ;
-        // var parks = response. ;
-        // var rest = response. ; 
-        // var lodge = response. ;
-        // var mealDiv = response. ;
-        // var camp = response. ;
-        // var muse = response. ;
-        // })
-   
-//------------------------------------------------------------------------------
-
-
-        
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
@@ -175,7 +120,8 @@ function currentUSData(){
             var cardImg = $("<img>");
             //need to add in state flag
             cardImg.attr("src", "https://m.media-amazon.com/images/I/51945vytmPL._AC_.jpg");
-            cardTitle = $("<h1>").text("United Stats Data");
+            cardTitle = $("<span>").text("United Stats Data");
+            cardTitle.addClass("card-title");
             var cardContent = $("<div>");
             cardContent.addClass("card-content");
             var item2 = $("<p>").text(`Total Deaths in US: ${totalDeath}`);
@@ -190,8 +136,8 @@ function currentUSData(){
                 item5,
                 item7,
                 );
-            cardImgDiv.append(cardImg);
-            card.append(cardTitle, cardImgDiv,cardContent);
+            cardImgDiv.append(cardImg,cardTitle);
+            card.append(cardImgDiv,cardContent);
             usCovidData.append(card);
         });
 
@@ -200,4 +146,6 @@ function currentUSData(){
 ////Call functions////
 formSubmitCOVID();
 currentUSData();
+
+
 
