@@ -3,9 +3,9 @@
 // Variable for Grabbing Elements
 
 ////////uncomment these
-// var stateInput = $(".selectState");
-// var cityInput = $(".selectCity");
-// var yelpDataContainer = $("$.yelpDataContainer");
+var stateInput = $(".selectState");
+var cityInput = $(".selectCity");
+
 var covidDataContainer = $(".covidDataContainer");
 var usCovidData = $(".usCovidInfo")
 // var searchForm = $(".selectStateForm");
@@ -15,7 +15,6 @@ var usCovidData = $(".usCovidInfo")
 
 //AJAX call for grabbing COVID data based on user state input
 function formSubmitCOVID(){
-    
     // pulling user data for Postal Code
    
     // attach flag to state
@@ -24,7 +23,7 @@ function formSubmitCOVID(){
     /////////uncomment variable after testing complete and delete static OH variable
     ////var state = stateInput.val();
     
-    var state = "OH"
+    var state = "TX";
     //URL to query for state COVID data
     var queryURL = `https://api.covidtracking.com/v1/states/${state}/current.json`;
    
@@ -120,7 +119,7 @@ function currentUSData(){
             var cardImg = $("<img>");
             //need to add in state flag
             cardImg.attr("src", "https://m.media-amazon.com/images/I/51945vytmPL._AC_.jpg");
-            cardTitle = $("<span>").text("United Stats Data");
+            cardTitle = $("<h1>").text("United States Data");
             cardTitle.addClass("card-title");
             var cardContent = $("<div>");
             cardContent.addClass("card-content");
@@ -136,15 +135,16 @@ function currentUSData(){
                 item5,
                 item7,
                 );
-            cardImgDiv.append(cardImg,cardTitle);
-            card.append(cardImgDiv,cardContent);
+            cardImgDiv.append(cardImg);
+            card.append(cardTitle,cardImgDiv,cardContent);
             usCovidData.append(card);
         });
 
 }
 
 ////Call functions////
-formSubmitCOVID();
+
+$("button").on("click", formSubmitCOVID);
 currentUSData();
 
 

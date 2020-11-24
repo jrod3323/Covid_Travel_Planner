@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <div class="card medium usCovidInfo">
+  <div class="card medium usCovidInfo center m6">
     <!-- Card Content -->
   </div>
 
@@ -62,7 +62,9 @@
             </div>
             <input type="text" class="form-control" id="searchedCity" placeholder="search for a city">
             </div>
-
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
           </div>
         </div>
 
@@ -103,7 +105,7 @@
             <p>
               <label>
                 <input name="group1" type="radio" checked />
-                <span>Loddging</span>
+                <span>Lodging</span>
               </label>
             </p>
             <p>
@@ -205,8 +207,8 @@
   <script src="./js/init.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems, options);
+      // var elems = document.querySelectorAll('select');
+      // var instances = M.FormSelect.init(elems, options);
     });
   
     // Or with jQuery
@@ -215,9 +217,9 @@
       $('select').formSelect();
     });
 
-    $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
+  //   $( function() {
+  //   $( "#datepicker" ).datepicker();
+  // } );
     </script>
 
   <script src="./js/script.js"></script>
