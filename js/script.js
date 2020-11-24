@@ -149,12 +149,12 @@ currentUSData();
 
 
 
-for loop {
-    index = i ;
+// for loop {
+//     index = i ;
 
-    usStateInfo[i].code === userInput
+//     usStateInfo[i].code === userInput
     
-    return i then break
-}
+//     return i then break
+// }
 
-usStateInfo [ that returned index].state flag 
+// usStateInfo [ that returned index].state flag 
