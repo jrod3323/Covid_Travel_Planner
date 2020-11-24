@@ -55,6 +55,8 @@ function formSubmitCOVID(){
         var positivePercent = ((positiveTests/totalTests)*100).toFixed(2);
         console.log(positivePercent);
 
+        //for 
+
         var card = $("<div>");
         var cardImgDiv = $("<div>")
         card.addClass("card");
@@ -117,8 +119,7 @@ function currentUSData(){
             var cardImg = $("<img>");
             //need to add in state flag
             cardImg.attr("src", "https://m.media-amazon.com/images/I/51945vytmPL._AC_.jpg");
-            cardTitle = $("<span>").text("United Stats Data");
-            cardTitle.addClass("card-title");
+            cardTitle = $("<h1>").text("United Stats Data");
             var cardContent = $("<div>");
             cardContent.addClass("card-content");
             var item2 = $("<p>").text(`Total Deaths in US: ${totalDeath}`);
@@ -133,8 +134,8 @@ function currentUSData(){
                 item5,
                 item7,
                 );
-            cardImgDiv.append(cardImg,cardTitle);
-            card.append(cardImgDiv,cardContent);
+            cardImgDiv.append(cardImg);
+            card.append(cardTitle, cardImgDiv,cardContent);
             usCovidData.append(card);
         });
 
@@ -143,3 +144,17 @@ function currentUSData(){
 ////Call functions////
 formSubmitCOVID();
 currentUSData();
+
+
+
+
+
+for loop {
+    index = i ;
+
+    usStateInfo[i].code === userInput
+    
+    return i then break
+}
+
+usStateInfo [ that returned index].state flag 
