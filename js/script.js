@@ -3,8 +3,7 @@
 // Variable for Grabbing Elements
 
 ////////uncomment these
-// var stateInput = $(".selectState");
-// var cityInput = $(".selectCity");
+// 
 // var yelpDataContainer = $("$.yelpDataContainer");
 var covidDataContainer = $(".covidDataContainer");
 var usCovidData = $(".usCovidInfo")
@@ -96,43 +95,43 @@ function formSubmitCOVID(){
 }
 
 
-function formSubmitActivity(){
-    //------------------------Google Places---------------------------
-    var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
-    var googURL = `https://maps.googleapis.com/maps/api/place/details/output?parameters`;
+
 
     function formSubmitActivity(){
         //------------------------Google Places---------------------------
         var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
-        var googURL = `https://maps.googleapis.com/maps/api/place/details/output?parameters`;
-    
+        var googURL = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=[cityInput]&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
+        var stateInput = $(".selectState");
+        var cityInput = $(".selectCity");
+        console.log(googURL);
+
         //ajax promise
-        $.ajax({
-            url: googURL,
-            method :"GET"
-            }).then(function(response) {
-            console.log(response);
-            console.log(googURL);
+    //     $.ajax({
+    //         url: googURL,
+    //         method :"GET"
+    //         }).then(function(response) {
+    //         console.log(response);
+    //         console.log(googURL);
     
     
-        $("#rvPark").html(response.) ;
-        $("#zoo").html(response. );
-        $("#parks").html(response. );
-        $("#rest").html(response. );
-        $("#lodge").html(response. );
-        $("#meal").html(response. );
-        $("#camp").html(response. );
-        $("#muse").html( response. );
+    //     $("#cityInput").html(response.) ;
+    //     $("#zoo").html(response. );
+    //     $("#parks").html(response. );
+    //     $("#rest").html(response. );
+    //     $("#lodge").html(response. );
+    //     $("#meal").html(response. );
+    //     $("#camp").html(response. );
+    //     $("#muse").html( response. );
     
-    console.log(googURL);
+    // console.log(googURL);
     
-            })}
+    //         })}
         
         
         
         
         
-        // var rv = respnse. ;
+        // var rv = response. ;
         // var zoo = response. ;
         // var parks = response. ;
         // var rest = response. ; 
@@ -205,12 +204,4 @@ currentUSData();
 
 
 
-for loop {
-    index = i ;
-
-    usStateInfo[i].code === userInput
-    
-    return i then break
-}
-
-usStateInfo [ that returned index].state flag 
+    }
