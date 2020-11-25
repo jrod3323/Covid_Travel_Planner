@@ -94,7 +94,6 @@ function formSubmitCOVID(){
 
 
 
-<<<<<<< HEAD
 
     // function formSubmitActivity(){
     //     //------------------------Google Places---------------------------
@@ -130,8 +129,6 @@ function formSubmitCOVID(){
 
 
         
-=======
->>>>>>> 866caf20d0c277f255a9a4346bb7e69c3cb009d9
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
@@ -144,7 +141,7 @@ function currentUSData(){
             method: "GET"
             }).then(function(response) {
             //get the UV index
-            console.log(response)
+            console.log(response)git
             //pulling data from API
             var totalDeath = response[0].death ;
             var deathIncrease = response[0].deathIncrease;
