@@ -1050,3 +1050,18 @@ var usStateInfo = [
     "facebook_url": null
     }
     ]
+
+
+    function addDropDown(){
+    for (var i = 0; i < usStateInfo.length; i++) {
+
+        var dropDown = $(".icons");
+        var option = $("<option>");
+        option.text(usStateInfo[i].code);
+        option.attr("data-icon", usStateInfo[i].map_image_url);
+
+        dropDown.append(option);
+
+    }}
+
+    addDropDown();

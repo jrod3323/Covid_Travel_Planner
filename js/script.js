@@ -3,8 +3,11 @@
 // Variable for Grabbing Elements
 
 ////////uncomment these
-// 
-// var yelpDataContainer = $("$.yelpDataContainer");
+
+var stateInput = $(".selectState");
+var cityInput = $(".selectCity");
+
+
 var covidDataContainer = $(".covidDataContainer");
 var usCovidData = $(".usCovidInfo")
 // var searchForm = $(".selectStateForm");
@@ -14,23 +17,20 @@ var usCovidData = $(".usCovidInfo")
 
 //AJAX call for grabbing COVID data based on user state input
 function formSubmitCOVID(){
-    
     // pulling user data for Postal Code
-    
+   
+    // attach flag to state
+
+
     /////////uncomment variable after testing complete and delete static OH variable
     ////var state = stateInput.val();
     
-    var state = "OH"
+    var state = "TX";
     //URL to query for state COVID data
     var queryURL = `https://api.covidtracking.com/v1/states/${state}/current.json`;
-
-    
-
+   
     //empty that container for COVID data before appending new
     // covidDataContainer.empty();
-
-    //looping through state info to grab state flag url
-    
     //AJAX
     $.ajax({
         url: queryURL,
@@ -58,8 +58,6 @@ function formSubmitCOVID(){
         console.log(totalTests)
         var positivePercent = ((positiveTests/totalTests)*100).toFixed(2);
         console.log(positivePercent);
-
-        //for 
 
         var card = $("<div>");
         var cardImgDiv = $("<div>")
@@ -96,6 +94,7 @@ function formSubmitCOVID(){
 
 
 
+<<<<<<< HEAD
 
     // function formSubmitActivity(){
     //     //------------------------Google Places---------------------------
@@ -131,6 +130,8 @@ function formSubmitCOVID(){
 
 
         
+=======
+>>>>>>> 866caf20d0c277f255a9a4346bb7e69c3cb009d9
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
@@ -160,7 +161,8 @@ function currentUSData(){
             var cardImg = $("<img>");
             //need to add in state flag
             cardImg.attr("src", "https://m.media-amazon.com/images/I/51945vytmPL._AC_.jpg");
-            cardTitle = $("<h1>").text("United Stats Data");
+            cardTitle = $("<h1>").text("United States Data");
+            cardTitle.addClass("card-title");
             var cardContent = $("<div>");
             cardContent.addClass("card-content");
             var item2 = $("<p>").text(`Total Deaths in US: ${totalDeath}`);
@@ -176,18 +178,18 @@ function currentUSData(){
                 item7,
                 );
             cardImgDiv.append(cardImg);
-            card.append(cardTitle, cardImgDiv,cardContent);
+            card.append(cardTitle,cardImgDiv,cardContent);
             usCovidData.append(card);
         });
 
 }
 
 ////Call functions////
-formSubmitCOVID();
+
+$("button").on("click", formSubmitCOVID);
 currentUSData();
 
 
 
 
 
-    }
