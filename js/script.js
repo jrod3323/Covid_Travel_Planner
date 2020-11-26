@@ -6,6 +6,7 @@
 
 var stateInput = $(".selectState");
 var cityInput = $(".selectCity");
+var parkCard = $(".parksData");
 
 
 var covidDataContainer = $(".covidDataContainer");
@@ -186,9 +187,9 @@ function currentUSData(){
 
 function getGoogleInfo(){
 
-    var cityState = "Austin,Texas"
+    var state = "TX"
     // api URL
-    var queryURL =  "https://api.openweathermap.org/data/2.5/forecast?q="+cityState+"&appid=4a4e7e38b950e4866fbd81200ca3d5cb";
+    var queryURL =  `https://developer.nps.gov/api/v1/parks?stateCode=${state}&api_key=eXglktNmNO6IDONNlFigDiX8R2vBAusn4PZi8eSs`;
     // Ajax call to API
     $.ajax({
     url: queryURL,
@@ -196,23 +197,31 @@ function getGoogleInfo(){
     }).then(function(response) {
     //log the response from the api
     console.log(response);
-    //Fill in Data for Main Result Container
-    //fill city and state
     
-    var lat = response.city.coord.lat;
-    console.log(lat);
-    var lon = response.city.coord.lon;
-    console.log(lon);
+    for(var i = 0; i<3; i++){
+        var index = Math.floor(Math.random()*response.total);
+        var parkName = response.data[index].fullName;
+        console.log(parkName);
+        var parkPic = response.data[index].images[0].url;
+        console.log(parkPic);
+        var parkURL = response.data[index].url;
+        console.log(parkURL);
 
-    var searchParam = "restaurant";
-    var googleQueryURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=33000&keyword=${searchParam}&key=AIzaSyA7Ri52HuBww0MHVoTFZAM1ISKgADDTfrQ`
-    $.ajax({
-        url: googleQueryURL,
-        method: "GET"
-        }).then(function(response2) {
-        //log the response from the api
-        console.log(response2);
-        })
+        var infoDiv = $("<div>");
+        infoDiv.attr("id","test"+(i+4));
+        var parkN = $("<h1>");
+        parkN.text(parkName)
+        var parkImg = $("<img>");
+        parkImg.attr("src",parkPic).attr("alt",`Picture of ${parkName}`)
+        var parkLink = $("<a>");
+        parkLink.attr("href",parkURL).attr("target","_blank")
+        parkLink.text("Here's a link to the parks website!")
+
+        parkCard.append(infoDiv);
+        infoDiv.append(parkN,parkImg,parkLink);
+        
+
+    }
 
     })
 }
