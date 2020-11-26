@@ -12,27 +12,29 @@
 </head>
 <body>
   <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center col s12 m12 l12">Covid Travel Planner</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center col s12 m12 l12">Pandemic Travel Planner</a>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container" id = "top-jumbo">
       <br><br>
-      <h1 class="header center red-text" id = "jumbo-title">Traveling During COVID? </h1>
+      <h1 class="header center red-text " id = "jumbo-title">Gallivanting during COVID? </h1>
       <div class="row center">
 
-        <h5 class="header col s12 heavy white-text" id = "jumbo-text">Use our inviolable Covid stat checking tool and state park recommendation to better plan a safe and socially distanced trip! </h5>
+        <h5 class="header col s12 left-align heavy white-text" id = "jumbo-text">Use our inviolable Covid stat checking and state<br> 
+        parks recommendation tool to better plan
+        a safe and socially<br> distanced escape! </h5>
       </div>
       <div class="row center">
-        <a href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"  target="_blank" id="download-button" class="btn-large waves-effect waves-light orange">CDC Travel Info</a>
+        <a href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"  target="_blank" id="download-button" class="btn-large waves-effect waves-light orange">*CDC Travel Info</a>
       </div>
       <br><br>
 
     </div>
   </div>
 
-  <div class="card medium usCovidInfo center m6">
+  <div class="card medium usCovidInfo center m12" id="usMap">
     <!-- Card Content -->
   </div>
 
@@ -76,26 +78,26 @@
 
      
       <div class="row">
-        <div class="col s12 m6 covidDataContainer">
+        <div class="col s12 m6 covidDataContainer" id="stateInfo">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">add_location</i></h2>
             <h5 class="center">Your Selected State's COVID-19 Info</h5>
 
-            <p class="light center">Up to date COVID-19 state info:</p>
+            <p class="light center">These stats are updated daily</p>
             <div class = "something"></div>
           </div>
         </div>
-
-        <div class="col s12 m6 activityDataContainer">
+        
+        <div class="col s12 m6 activityDataContainer" id="natPark">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Here Are Some Recomended Activities</h5>
+            <h5 class="center" >Your Selected State's National Parks</h5>
 
-            <p class="light center">During your stay, we suggest you practice social distancing and experience one of the Parks that the State has to offer! Here are 3 random parks. Search again to see more!</p>
+            <p class="light center">Keep searching until you find your perfect outdoor get-away!</p>
             <div class="card">
-              <div class="card-content">
+              <!-- <div class="card-content">
                 <p>State Parks!</p>
-              </div>
+              </div> -->
               <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
                   <li class="tab" ><a id="test1" href="#test4">Park 1</a></li>
@@ -103,7 +105,7 @@
                   <li class="tab" ><a id="test3" href="#test6">Park 3</a></li>
                 </ul>
               </div>
-              <div class="card-content grey lighten-4 parksData">
+              <div class="card-content green lighten-4 parksData" id="parkList">
                 <!-- <div id="test4">Test 1</div>
                 <div id="test5">Test 2</div>
                 <div id="test6">Test 3</div> -->
