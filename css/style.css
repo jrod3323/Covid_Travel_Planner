@@ -27,3 +27,10 @@
 .usCovidInfo{
   margin-bottom: 10%;
 }
+.card-title{
+ font-size: 2rem;
+}
+.card-image{
+  height:20vh;
+  width: 20vw;
+}
