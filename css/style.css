@@ -27,6 +27,15 @@
 .usCovidInfo{
   margin-bottom: 10%;
 }
+
+.active {
+  display: block;
+}
+
+.inactive {
+  display:none;
+}
+
 .card-title{
  font-size: 2rem;
 }
@@ -34,3 +43,4 @@
   height:20vh;
   width: 20vw;
 }
+
