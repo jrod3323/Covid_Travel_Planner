@@ -35,3 +35,12 @@
 .inactive {
   display:none;
 }
+
+.card-title{
+ font-size: 2rem;
+}
+.card-image{
+  height:20vh;
+  width: 20vw;
+}
+

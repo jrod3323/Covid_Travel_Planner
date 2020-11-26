@@ -22,7 +22,7 @@
       <h1 class="header center red-text" id = "jumbo-title">Traveling During COVID? </h1>
       <div class="row center">
 
-        <h5 class="header col s12 heavy white-text" id = "jumbo-text">use our inviolable stat checking tool to view current COVID-19 data in order to better plan safe activities at your desired location</h5>
+        <h5 class="header col s12 heavy white-text" id = "jumbo-text">Use our inviolable Covid stat checking tool and state park recommendation to better plan a safe and socially distanced trip! </h5>
       </div>
       <div class="row center">
         <a href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-during-covid19.html"  target="_blank" id="download-button" class="btn-large waves-effect waves-light orange">CDC Travel Info</a>
@@ -41,15 +41,18 @@
 
       <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m6 selectState">
+        <div class="col s12 m12 selectState">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">add_location</i></h2>
             <h5 class="center">Select Your Destination</h5>
 
-            <p class="light center">Choose a State and City in the form below</p>
+            <p class="light center">Choose a State in the form below</p>
             <!-- change these to , CREATE AN ARRAY, CALL UPON THEM IN THE DROP DOWN-->
             <div class = "input-field">
             <div class="input-field col s12 m12">
+              
+
+            <form>
               <select class="icons">
                 <!-- <label for="number">Select a number</label> -->
                 <select name="number" id="number">
@@ -59,8 +62,6 @@
                 
               </select>
 
-            <form>
-              <label>please choose a State</label>
             </div>
             
             </div>
@@ -71,86 +72,6 @@
 
           </div>
         </div>
-
-        <div class="col s12 m6 selectActivity">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Select Your Desired Activities </h5>
-            <p class="light center">Use the buttons below to get recommendations</p>
-          </div>
-          <form  action="#">
-            <div class = "col s6 m6 l6">
-            <p>
-              <label>
-                <input name="group1" type="radio" checked />
-                <span>RV-Parks</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input name="group1" type="radio" />
-                <span>Zoo</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input class="" name="group1" type="radio"  />
-                <span>Parks</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input name="group1" type="radio" />
-                <span>Restaurants</span>
-              </label>
-            </p>
-          </div>
-          <div  class = "col s6 m6 l6">
-            <p>
-              <label>
-                <input name="group1" type="radio" checked />
-                <span>Lodging</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input name="group1" type="radio" />
-                <span>Meal-Delivery</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input class="" name="group1" type="radio"  />
-                <span>Campgrounds</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input name="group1" type="radio" />
-                <span>Museums</span>
-              </label>
-            </p>
-          </div>
-          </form>
-          
-        </div>
-
-        <!-- <div class="col s12 m4 selectDuration">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">date_range</i></h2>
-            <h5 class="center">Select Your Intended Stay Duration</h5>
-
-            <p class="light">select when you intend to travel for up to date weather information</p>
-            <p>Trip Start Date: <input type="text" id="datepicker"></p>
-            
-            <form action="#">
-              <p class="range-field">Trip Duration in Days:
-                <input type="range" id="test5" min="1" max="30" />
-              </p>
-            </form>
-
-          </div>
-        </div> -->
       </div>
 
      
@@ -158,18 +79,18 @@
         <div class="col s12 m6 covidDataContainer">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">add_location</i></h2>
-            <h5 class="center">Your Selected Destination's COVID-19 Info</h5>
+            <h5 class="center">Your Selected State's COVID-19 Info</h5>
 
-            <p class="light center">here is up to date COVID-19 info on where you want to travel:</p>
+            <p class="light center">Up to date COVID-19 state info:</p>
           </div>
         </div>
 
         <div class="col s12 m6 activityDataContainer">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Recomendations for Your Desired Activities</h5>
+            <h5 class="center">Here Are Some Recomended Activities</h5>
 
-            <p class="light center">During your stay, we suggest you practice social distancing and experience one of the State Parks that the State has to offer! Here are 3 random parks from the State. Search again to see more!</p>
+            <p class="light center">During your stay, we suggest you practice social distancing and experience one of the Parks that the State has to offer! Here are 3 random parks. Search again to see more!</p>
             <div class="card">
               <div class="card-content">
                 <p>State Parks!</p>
@@ -189,14 +110,6 @@
             </div>
           </div>
         </div>
-
-        <!-- <div class="col s12 m4 weatherDataContainer">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">cloud</i></h2>
-            <h5 class="center">Weather Forecast for Your Intended Stay Duration</h5>
-
-            <p class="light center">here is the forecast for your intended period of stay:</p>
-          </div> -->
         </div>
       </div>
 
@@ -209,7 +122,7 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We a team of Software Developer students at UT Austin.  </p>
+          <p class="grey-text text-lighten-4">We are a team of Software Developer students at UT Austin's Center for Professional Education.  </p>
 
 
         </div>

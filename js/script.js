@@ -91,7 +91,6 @@ function formSubmitCOVID(event){
     });
 }
 
-        
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
@@ -176,17 +175,14 @@ function getGoogleInfo(){
             infoDiv.addClass("inactive")
         };
         var parkN = $("<h1>");
+        parkN.addClass("card-title");
         parkN.text(parkName)
-        var parkImg = $("<img>");
+        var parkImg = $("<img> <br>");
+        parkImg.addClass("card-image center");
         parkImg.attr("src",parkPic).attr("alt",`Picture of ${parkName}`)
         var parkLink = $("<a>");
         parkLink.attr("href",parkURL).attr("target","_blank")
         parkLink.text("Here's a link to the parks website!")
-
-        parkCard.append(infoDiv);
-        infoDiv.append(parkN,parkImg,parkLink);
-        
-
     }
 
     })
