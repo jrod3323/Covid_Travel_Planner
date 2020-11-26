@@ -33,7 +33,7 @@ function formSubmitCOVID(event){
     var queryURL = `https://api.covidtracking.com/v1/states/${state}/current.json`;
    
     //empty that container for COVID data before appending new
-    // covidDataContainer.empty();
+    covidDataContainer.empty();
     //AJAX
     $.ajax({
         url: queryURL,
@@ -53,8 +53,6 @@ function formSubmitCOVID(event){
         console.log(currentlyHospitalized);
         var increasedHospitalizations = response.hospitalizedIncrease;
         console.log(increasedHospitalizations);
-        var probableDeaths = response.deathProbable;
-        console.log(probableDeaths);
         var positiveTests = response.positiveCasesViral;
         console.log(positiveTests);
         var totalTests = response.totalTestsViral;
@@ -76,9 +74,8 @@ function formSubmitCOVID(event){
         var item2 = $("<p>").text(`Total Deaths: ${totalDeaths}`);
         var item3 = $("<p>").text(`Increase in Deaths since previous update: ${deathIncreaseSinceLast}`);
         var item4 = $("<p>").text(`Current Hospitalizations: ${currentlyHospitalized}`);
-        var item5 = $("<p>").text(`Increase in hospitalizations since previous update: ${increasedHospitalizations}`);
-        var item6 = $("<p>").text(`Probable Deaths: ${probableDeaths}`);
-        var item7 = $("<p>").text(`Percentage of positive tests: ${positivePercent}%`);
+        var item5 = $("<p>").text(`Hospitalizations since previous update: ${increasedHospitalizations}`);
+        var item6 = $("<p>").text(`Percentage of positive tests: ${positivePercent}%`);
         cardContent.append(
             item1,
             item2,
@@ -86,7 +83,6 @@ function formSubmitCOVID(event){
             item4,
             item5,
             item6,
-            item7,
             );
         cardImgDiv.append(cardImg,cardTitle);
         card.append(cardImgDiv,cardContent);
@@ -95,11 +91,7 @@ function formSubmitCOVID(event){
     });
 }
 
-
-    
-
-
-
+        
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
@@ -178,24 +170,61 @@ function getGoogleInfo(){
 
         var infoDiv = $("<div>");
         infoDiv.attr("id","test"+(i+4));
+        if(i===0){
+            infoDiv.addClass("active")
+        }else{
+            infoDiv.addClass("inactive")
+        };
         var parkN = $("<h1>");
-        parkN.addClass("card-title");
         parkN.text(parkName)
-        var parkImg = $("<img> <br>");
-        parkImg.addClass("card-image center");
+        var parkImg = $("<img>");
         parkImg.attr("src",parkPic).attr("alt",`Picture of ${parkName}`)
         var parkLink = $("<a>");
         parkLink.attr("href",parkURL).attr("target","_blank")
         parkLink.text("Here's a link to the parks website!")
+
+        parkCard.append(infoDiv);
+        infoDiv.append(parkN,parkImg,parkLink);
+        
+
     }
 
     })
+}
+
+function cardChange(event){
+    var clickID = event.target.id;
+    console.log(clickID)
+    if(clickID == "test1"){
+        $("#test4").removeClass("active inactive");
+        $("#test5").removeClass("active inactive");
+        $("#test6").removeClass("active inactive");
+        $("#test4").addClass("active");
+        $("#test5").addClass("inactive");
+        $("#test6").addClass("inactive");
+    }else if(clickID == "test2"){
+        $("#test4").removeClass("active inactive");
+        $("#test5").removeClass("active inactive");
+        $("#test6").removeClass("active inactive");
+        $("#test4").addClass("inactive");
+        $("#test5").addClass("active");
+        $("#test6").addClass("inactive");
+    }else if(clickID == "test3"){
+        $("#test4").removeClass("active inactive");
+        $("#test5").removeClass("active inactive");
+        $("#test6").removeClass("active inactive");
+        $("#test4").addClass("inactive");
+        $("#test5").addClass("inactive");
+        $("#test6").addClass("active");
+    }
 }
 ////Call functions////
 
 $("button").on("click", formSubmitCOVID);
 currentUSData();
 getGoogleInfo();
+$(".activityDataContainer").on("click",cardChange)
+
 
 
 
