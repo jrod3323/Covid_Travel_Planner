@@ -96,41 +96,10 @@ function formSubmitCOVID(event){
 }
 
 
-
-
-    function formSubmitActivity(){
-        //------------------------Google Places---------------------------
-        var cityInput = $("#searchedCity").val();
-        var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
-        var googURL = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${cityInput}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${apiKey}`;
-        console.log(googURL);
-
-        // ajax promise
-        $.ajax({
-            url: googURL,
-            method :"GET"
-            }).then(function(response) {
-            console.log(response);
-            console.log(googURL);
     
-    
-        // $("#cityInput").html(response.) ;
-        // $("#zoo").html(response. );
-        // $("#parks").html(response. );
-        // $("#rest").html(response. );
-        // $("#lodge").html(response. );
-        // $("#meal").html(response. );
-        // $("#camp").html(response. );
-        // $("#muse").html( response. );
-    
-    console.log(googURL);
-    
-            })}
-        
-//------------------------------------------------------------------------------
 
 
-        
+
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
