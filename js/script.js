@@ -95,35 +95,34 @@ function formSubmitCOVID(){
 
 
 
-    // function formSubmitActivity(){
-    //     //------------------------Google Places---------------------------
-    //     var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
-    //     var googURL = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=[cityInput]&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
-    //     var stateInput = $(".selectState");
-    //     var cityInput = $(".selectCity");
-    //     console.log(googURL);
+    function formSubmitActivity(){
+        //------------------------Google Places---------------------------
+        var cityInput = $("#searchedCity").val();
+        var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
+        var googURL = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${cityInput}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${apiKey}`;
+        console.log(googURL);
 
-        //ajax promise
-    //     $.ajax({
-    //         url: googURL,
-    //         method :"GET"
-    //         }).then(function(response) {
-    //         console.log(response);
-    //         console.log(googURL);
+        // ajax promise
+        $.ajax({
+            url: googURL,
+            method :"GET"
+            }).then(function(response) {
+            console.log(response);
+            console.log(googURL);
     
     
-    //     $("#cityInput").html(response.) ;
-    //     $("#zoo").html(response. );
-    //     $("#parks").html(response. );
-    //     $("#rest").html(response. );
-    //     $("#lodge").html(response. );
-    //     $("#meal").html(response. );
-    //     $("#camp").html(response. );
-    //     $("#muse").html( response. );
+        // $("#cityInput").html(response.) ;
+        // $("#zoo").html(response. );
+        // $("#parks").html(response. );
+        // $("#rest").html(response. );
+        // $("#lodge").html(response. );
+        // $("#meal").html(response. );
+        // $("#camp").html(response. );
+        // $("#muse").html( response. );
     
-    // console.log(googURL);
+    console.log(googURL);
     
-    //         })}
+            })}
         
 //------------------------------------------------------------------------------
 
@@ -141,7 +140,7 @@ function currentUSData(){
             method: "GET"
             }).then(function(response) {
             //get the UV index
-            console.log(response)git
+            console.log(response)
             //pulling data from API
             var totalDeath = response[0].death ;
             var deathIncrease = response[0].deathIncrease;
