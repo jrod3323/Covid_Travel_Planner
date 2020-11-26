@@ -223,6 +223,8 @@ function cardChange(event){
 $("button").on("click", formSubmitCOVID);
 currentUSData();
 getGoogleInfo();
+
+//Changes park on click
 $(".activityDataContainer").on("click",cardChange)
 
 
