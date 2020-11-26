@@ -1057,11 +1057,10 @@ var usStateInfo = [
 
         var dropDown = $(".icons");
         var option = $("<option>");
-        option.text(usStateInfo[i].code);
+        option.text(usStateInfo[i].state);
         option.attr("data-icon", usStateInfo[i].map_image_url);
-
+        option.attr("data-code", usStateInfo[i].code);
         dropDown.append(option);
-
     }}
 
     addDropDown();
