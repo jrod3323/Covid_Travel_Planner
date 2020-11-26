@@ -229,6 +229,10 @@ $(".activityDataContainer").on("click",cardChange)
 $(".activityDataContainer").on("click",cardChange)
 
 
+//Changes park on click
+$(".activityDataContainer").on("click",cardChange)
+
+
 
 
 
