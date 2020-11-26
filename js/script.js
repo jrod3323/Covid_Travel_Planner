@@ -225,7 +225,6 @@ function getGoogleInfo(){
 
     })
 }
-
 ////Call functions////
 
 $("button").on("click", formSubmitCOVID);
