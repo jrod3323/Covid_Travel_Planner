@@ -9,7 +9,7 @@ var cityInput = $(".selectCity");
 var parkCard = $(".parksData");
 
 
-var covidDataContainer = $(".covidDataContainer");
+var covidDataContainer = $(".something");
 var usCovidData = $(".usCovidInfo")
 // var searchForm = $(".selectStateForm");
 // var activitySelector = $(".selectActivityForm")
@@ -176,7 +176,9 @@ function getGoogleInfo(){
         };
         var parkN = $("<h1>");
         parkN.text(parkName)
-        var parkImg = $("<img>");
+        parkN.addClass("card-title")
+        var parkImg = $("<img> <br>");
+        parkImg.addClass("card-image")
         parkImg.attr("src",parkPic).attr("alt",`Picture of ${parkName}`)
         var parkLink = $("<a>");
         parkLink.attr("href",parkURL).attr("target","_blank")
