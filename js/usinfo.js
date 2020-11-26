@@ -1059,9 +1059,8 @@ var usStateInfo = [
         var option = $("<option>");
         option.text(usStateInfo[i].code);
         option.attr("data-icon", usStateInfo[i].map_image_url);
-
+        option.attr("data-code", usStateInfo[i].code);
         dropDown.append(option);
-
     }}
 
     addDropDown();

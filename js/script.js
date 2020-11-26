@@ -3,8 +3,11 @@
 // Variable for Grabbing Elements
 
 ////////uncomment these
+
 var stateInput = $(".selectState");
 var cityInput = $(".selectCity");
+var parkCard = $(".parksData");
+
 
 var covidDataContainer = $(".covidDataContainer");
 var usCovidData = $(".usCovidInfo")
@@ -14,7 +17,8 @@ var usCovidData = $(".usCovidInfo")
 ////Functions////
 
 //AJAX call for grabbing COVID data based on user state input
-function formSubmitCOVID(){
+function formSubmitCOVID(event){
+    event.preventDefault()
     // pulling user data for Postal Code
    
     // attach flag to state
@@ -22,6 +26,7 @@ function formSubmitCOVID(){
 
     /////////uncomment variable after testing complete and delete static OH variable
     ////var state = stateInput.val();
+
     
     var state = "TX";
     //URL to query for state COVID data
@@ -91,6 +96,7 @@ function formSubmitCOVID(){
 }
 
 
+<<<<<<< HEAD
     // function formSubmitActivity(){
     //     //------------------------Google Places---------------------------
     //     var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
@@ -124,6 +130,43 @@ function formSubmitCOVID(){
 
 
 
+=======
+
+
+    function formSubmitActivity(){
+        //------------------------Google Places---------------------------
+        var cityInput = $("#searchedCity").val();
+        var apiKey = `AIzaSyD2zafvdycgn34seHVFHLAXujSmlHcvMBg`;
+        var googURL = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${cityInput}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${apiKey}`;
+        console.log(googURL);
+
+        // ajax promise
+        $.ajax({
+            url: googURL,
+            method :"GET"
+            }).then(function(response) {
+            console.log(response);
+            console.log(googURL);
+    
+    
+        // $("#cityInput").html(response.) ;
+        // $("#zoo").html(response. );
+        // $("#parks").html(response. );
+        // $("#rest").html(response. );
+        // $("#lodge").html(response. );
+        // $("#meal").html(response. );
+        // $("#camp").html(response. );
+        // $("#muse").html( response. );
+    
+    console.log(googURL);
+    
+            })}
+        
+//------------------------------------------------------------------------------
+
+
+        
+>>>>>>> b99ab5fe8f31ab209199624cde45d167ac80ea16
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
@@ -176,10 +219,55 @@ function currentUSData(){
 
 }
 
+//Git Google API Data on submit
+
+function getGoogleInfo(){
+
+    var state = "TX"
+    // api URL
+    var queryURL =  `https://developer.nps.gov/api/v1/parks?stateCode=${state}&api_key=eXglktNmNO6IDONNlFigDiX8R2vBAusn4PZi8eSs`;
+    // Ajax call to API
+    $.ajax({
+    url: queryURL,
+    method: "GET"
+    }).then(function(response) {
+    //log the response from the api
+    console.log(response);
+    
+    for(var i = 0; i<3; i++){
+        var index = Math.floor(Math.random()*response.total);
+        var parkName = response.data[index].fullName;
+        console.log(parkName);
+        var parkPic = response.data[index].images[0].url;
+        console.log(parkPic);
+        var parkURL = response.data[index].url;
+        console.log(parkURL);
+
+        var infoDiv = $("<div>");
+        infoDiv.attr("id","test"+(i+4));
+        var parkN = $("<h1>");
+        parkN.text(parkName)
+        var parkImg = $("<img>");
+        parkImg.attr("src",parkPic).attr("alt",`Picture of ${parkName}`)
+        var parkLink = $("<a>");
+        parkLink.attr("href",parkURL).attr("target","_blank")
+        parkLink.text("Here's a link to the parks website!")
+
+        parkCard.append(infoDiv);
+        infoDiv.append(parkN,parkImg,parkLink);
+        
+
+    }
+
+    })
+}
 ////Call functions////
 
 $("button").on("click", formSubmitCOVID);
 currentUSData();
+getGoogleInfo();
+
+
 
 
 
