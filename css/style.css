@@ -27,3 +27,11 @@
 .usCovidInfo{
   margin-bottom: 10%;
 }
+
+.active {
+  display: block;
+}
+
+.inactive {
+  display:none;
+}
