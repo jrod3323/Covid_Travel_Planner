@@ -16,7 +16,8 @@ var usCovidData = $(".usCovidInfo")
 ////Functions////
 
 //AJAX call for grabbing COVID data based on user state input
-function formSubmitCOVID(){
+function formSubmitCOVID(event){
+    event.preventDefault()
     // pulling user data for Postal Code
    
     // attach flag to state
@@ -24,6 +25,7 @@ function formSubmitCOVID(){
 
     /////////uncomment variable after testing complete and delete static OH variable
     ////var state = stateInput.val();
+
     
     var state = "TX";
     //URL to query for state COVID data
@@ -180,10 +182,46 @@ function currentUSData(){
 
 }
 
+//Git Google API Data on submit
+
+function getGoogleInfo(){
+
+    var cityState = "Austin,Texas"
+    // api URL
+    var queryURL =  "https://api.openweathermap.org/data/2.5/forecast?q="+cityState+"&appid=4a4e7e38b950e4866fbd81200ca3d5cb";
+    // Ajax call to API
+    $.ajax({
+    url: queryURL,
+    method: "GET"
+    }).then(function(response) {
+    //log the response from the api
+    console.log(response);
+    //Fill in Data for Main Result Container
+    //fill city and state
+    
+    var lat = response.city.coord.lat;
+    console.log(lat);
+    var lon = response.city.coord.lon;
+    console.log(lon);
+
+    var searchParam = "restaurant";
+    var googleQueryURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=33000&keyword=${searchParam}&key=AIzaSyA7Ri52HuBww0MHVoTFZAM1ISKgADDTfrQ`
+    $.ajax({
+        url: googleQueryURL,
+        method: "GET"
+        }).then(function(response2) {
+        //log the response from the api
+        console.log(response2);
+        })
+
+    })
+}
+
 ////Call functions////
 
 $("button").on("click", formSubmitCOVID);
 currentUSData();
+getGoogleInfo();
 
 
 
