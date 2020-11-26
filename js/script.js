@@ -91,6 +91,16 @@ function formSubmitCOVID(event){
     });
 }
 
+<<<<<<< HEAD
+
+
+        
+    
+
+
+
+=======
+>>>>>>> dbbcc1fa83cd044cebc1017001b710187d49c2dc
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
