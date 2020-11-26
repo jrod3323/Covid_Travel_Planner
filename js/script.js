@@ -91,7 +91,6 @@ function formSubmitCOVID(event){
     });
 }
 
-        
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
@@ -223,6 +222,10 @@ function cardChange(event){
 $("button").on("click", formSubmitCOVID);
 currentUSData();
 getGoogleInfo();
+$(".activityDataContainer").on("click",cardChange)
+
+
+//Changes park on click
 $(".activityDataContainer").on("click",cardChange)
 
 
