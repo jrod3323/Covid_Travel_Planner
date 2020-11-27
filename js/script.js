@@ -66,7 +66,7 @@ function formSubmitCOVID(event){
         var cardImg = $("<img>");
         //need to add in state flag
         cardImg.attr("src", "");
-        cardTitle = $("<span>").text("STATE");
+        cardTitle = $("<span>").text("STATE:");
         cardTitle.addClass("card-title");
         var cardContent = $("<div>");
         cardContent.addClass("card-content");
@@ -91,7 +91,6 @@ function formSubmitCOVID(event){
     });
 }
 
-<<<<<<< HEAD
 
 
         
@@ -99,8 +98,6 @@ function formSubmitCOVID(event){
 
 
 
-=======
->>>>>>> dbbcc1fa83cd044cebc1017001b710187d49c2dc
 function currentUSData(){
         //URL to query for state COVID data
         var queryURL = `https://api.covidtracking.com/v1/us/current.json`;
