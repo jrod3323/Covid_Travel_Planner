@@ -18,17 +18,17 @@ var usCovidData = $(".usCovidInfo")
 
 //AJAX call for grabbing COVID data based on user state input
 function formSubmitCOVID(event){
-    event.preventDefault()
     // pulling user data for Postal Code
-   
-    // attach flag to state
-
+    var state = $("#stateCode").val()
+    console.log(state);
+    // add local storage for most recent search
+    localStorage.setItem("recentSearch", state);
 
     /////////uncomment variable after testing complete and delete static OH variable
     ////var state = stateInput.val();
 
     
-    var state = "TX";
+    // var state = "TX";
     //URL to query for state COVID data
     var queryURL = `https://api.covidtracking.com/v1/states/${state}/current.json`;
    
@@ -63,10 +63,7 @@ function formSubmitCOVID(event){
         var card = $("<div>");
         var cardImgDiv = $("<div>")
         card.addClass("card");
-        var cardImg = $("<img>");
-        //need to add in state flag
-        cardImg.attr("src", "");
-        cardTitle = $("<span>").text("STATE:");
+        cardTitle = $("<span>").text("State: "+state);
         cardTitle.addClass("card-title");
         var cardContent = $("<div>");
         cardContent.addClass("card-content");
@@ -84,19 +81,12 @@ function formSubmitCOVID(event){
             item5,
             item6,
             );
-        cardImgDiv.append(cardImg,cardTitle);
+        cardImgDiv.append(cardTitle);
         card.append(cardImgDiv,cardContent);
         covidDataContainer.append(card);
 
     });
 }
-
-
-
-        
-    
-
-
 
 function currentUSData(){
         //URL to query for state COVID data
@@ -152,9 +142,9 @@ function currentUSData(){
 
 //Git Google API Data on submit
 
-function getGoogleInfo(){
+function getParkInfo(){
 
-    var state = "TX"
+    var state = $("#stateCode").val()
     // api URL
     var queryURL =  `https://developer.nps.gov/api/v1/parks?stateCode=${state}&api_key=eXglktNmNO6IDONNlFigDiX8R2vBAusn4PZi8eSs`;
     // Ajax call to API
@@ -164,6 +154,7 @@ function getGoogleInfo(){
     }).then(function(response) {
     //log the response from the api
     console.log(response);
+    parkCard.empty();
     
     for(var i = 0; i<3; i++){
         var index = Math.floor(Math.random()*response.total);
@@ -226,11 +217,128 @@ function cardChange(event){
         $("#test6").addClass("active");
     }
 }
-////Call functions////
 
-$("button").on("click", formSubmitCOVID);
+function generatePageInfo(){
+    formSubmitCOVID();
+    getParkInfo();
+}
+
+//Load most recent search on open
+
+function onLoadMostRecent(){
+    var state = localStorage.getItem("recentSearch");
+
+    if(state){
+        //URL to query for state COVID data
+    var queryURL = `https://api.covidtracking.com/v1/states/${state}/current.json`;
+   
+    //empty that container for COVID data before appending new
+    covidDataContainer.empty();
+    //AJAX
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response) {
+        //get the UV index
+        console.log(response)
+        
+        //grabbing necessary data
+        var lastUpdate = response.lastUpdateEt;
+        console.log(lastUpdate);
+        var totalDeaths = response.death;
+        console.log(totalDeaths);
+        var deathIncreaseSinceLast = response.deathIncrease;
+        console.log(deathIncreaseSinceLast);
+        var currentlyHospitalized = response.hospitalizedCurrently;
+        console.log(currentlyHospitalized);
+        var increasedHospitalizations = response.hospitalizedIncrease;
+        console.log(increasedHospitalizations);
+        var positiveTests = response.positiveCasesViral;
+        console.log(positiveTests);
+        var totalTests = response.totalTestsViral;
+        console.log(totalTests)
+        var positivePercent = ((positiveTests/totalTests)*100).toFixed(2);
+        console.log(positivePercent);
+
+        var card = $("<div>");
+        var cardImgDiv = $("<div>")
+        card.addClass("card");
+        cardTitle = $("<span>").text("State: "+state);
+        cardTitle.addClass("card-title");
+        var cardContent = $("<div>");
+        cardContent.addClass("card-content");
+        var item1 = $("<p>").text(`Date of last update: ${lastUpdate}`);
+        var item2 = $("<p>").text(`Total Deaths: ${totalDeaths}`);
+        var item3 = $("<p>").text(`Increase in Deaths since previous update: ${deathIncreaseSinceLast}`);
+        var item4 = $("<p>").text(`Current Hospitalizations: ${currentlyHospitalized}`);
+        var item5 = $("<p>").text(`Hospitalizations since previous update: ${increasedHospitalizations}`);
+        var item6 = $("<p>").text(`Percentage of positive tests: ${positivePercent}%`);
+        cardContent.append(
+            item1,
+            item2,
+            item3,
+            item4,
+            item5,
+            item6,
+            );
+        cardImgDiv.append(cardTitle);
+        card.append(cardImgDiv,cardContent);
+        covidDataContainer.append(card);
+
+    });
+
+    var queryURL =  `https://developer.nps.gov/api/v1/parks?stateCode=${state}&api_key=eXglktNmNO6IDONNlFigDiX8R2vBAusn4PZi8eSs`;
+    // Ajax call to API
+    $.ajax({
+    url: queryURL,
+    method: "GET"
+    }).then(function(response) {
+    //log the response from the api
+    console.log(response);
+    parkCard.empty();
+    
+    for(var i = 0; i<3; i++){
+        var index = Math.floor(Math.random()*response.total);
+        var parkName = response.data[index].fullName;
+        console.log(parkName);
+        var parkPic = response.data[index].images[0].url;
+        console.log(parkPic);
+        var parkURL = response.data[index].url;
+        console.log(parkURL);
+
+        var infoDiv = $("<div>");
+        infoDiv.attr("id","test"+(i+4));
+        if(i===0){
+            infoDiv.addClass("active")
+        }else{
+            infoDiv.addClass("inactive")
+        };
+        var parkN = $("<h1>");
+        parkN.text(parkName)
+        parkN.addClass("card-title")
+        var parkImg = $("<img> <br>");
+        parkImg.addClass("card-image")
+        parkImg.attr("src",parkPic).attr("alt",`Picture of ${parkName}`)
+        var parkLink = $("<a>");
+        parkLink.attr("href",parkURL).attr("target","_blank")
+        parkLink.text("Here's a link to the parks website!")
+
+        parkCard.append(infoDiv);
+        infoDiv.append(parkN,parkImg,parkLink);
+        
+
+    }
+
+    })
+
+    }
+
+}
+
+////Call functions////
+onLoadMostRecent();
+$("button").on("click", generatePageInfo);
 currentUSData();
-getGoogleInfo();
 $(".activityDataContainer").on("click",cardChange)
 
 
