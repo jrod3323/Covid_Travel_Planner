@@ -66,7 +66,7 @@ function formSubmitCOVID(event){
         var cardImg = $("<img>");
         //need to add in state flag
         cardImg.attr("src", "");
-        cardTitle = $("<span>").text("STATE");
+        cardTitle = $("<span>").text("STATE:");
         cardTitle.addClass("card-title");
         var cardContent = $("<div>");
         cardContent.addClass("card-content");

@@ -16,12 +16,17 @@
   background-image: url("../assets/COVIDTravelBanner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100%;
+  
+  
 }
 #jumbo-text{
-  text-shadow: 1px 1px black;
+  text-shadow: 1px 1px rgb(17, 17, 17);
+  justify-content: left;
 }
 #jumbo-title{
   text-shadow: 1px 1px black;
+  margin-right: 38%;
 }
 
 .usCovidInfo{
@@ -38,9 +43,54 @@
 
 .card-title{
  font-size: 2rem;
+ margin-left:10%;
+ font-weight: 800;
+ 
+ 
 }
 .card-image{
   height:20vh;
   width: 20vw;
+}
+
+.card-content{
+  background-color:rgb(214, 214, 226);
+}
+
+.btn-large{
+  margin-right:45%;
+  border-radius:5%;
+  padding:1%;
+  padding-top:1px;
+  padding-bottom:1px;
+}
+
+#usMap{
+  width:50em;
+  /* background: rgb(241, 241, 245); */
+  margin-left: 22%;
+}
+
+#stateInfo{
+  background-color:rgb(234, 234, 243);
+  border-right: solid white 15px;
+  
+}
+
+#natPark{
+  background-color:rgb(237, 248, 239);
+}
+
+#parkList{
+  padding-top:1%;
+}
+
+#test1, #test2, #test3{
+  font-size:18px;
+  border: black solid 1px;
+  padding: 1px;
+  border-radius: 5%;
+  background-color: rgb(209, 248, 164);
+  color: rgb(16, 16, 100);
 }
 
